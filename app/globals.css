@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .Input {
+        @apply flex justify-start items-center gap-2 border w-full h-10 pl-4 rounded-full focus-within:ring-2
+        focus-within:ring-offset-2 focus-within:ring-gray-200;
+    }
+}
