@@ -1,10 +1,10 @@
 "use client";
 import { useFormState, useFormStatus } from "react-dom";
 import FormInput from "../components/component";
-import handleForm from "../components/function";
+import LoginAction from "./action";
 
 export default function Login() {
-    const [state, dispatch] = useFormState(handleForm, null);
+    const [state, dispatch] = useFormState(LoginAction, null);
     const { pending } = useFormStatus();
     return (
         <div className="flex flex-col items-center">
@@ -24,7 +24,7 @@ export default function Login() {
                         type="email"
                         placeholder="Email"
                         required
-                        errors={[]}
+                        errors={state?.fieldErrors.email ?? []}
                     />
                     <FormInput
                         className="Input"
@@ -33,16 +33,16 @@ export default function Login() {
                         type="text"
                         placeholder="Username"
                         required
-                        errors={[]}
+                        errors={state?.fieldErrors.username ?? []}
                     />
                     <FormInput
-                        className={state?.success ? "Input" : "Input border-red-500"}
+                        className="Input"
                         icon="password"
                         name="password"
                         type="text"
                         placeholder="Password"
                         required
-                        errors={state?.errors ?? []}
+                        errors={state?.fieldErrors.password ?? []}
                     />
                     <button
                         disabled={pending}
@@ -50,7 +50,7 @@ export default function Login() {
                     >
                         {pending ? "Loading..." : "Log in"}
                     </button>
-                    {state?.success ? (
+                    {/*state?.success ? (
                         <div className="flex w-full bg-green-500 rounded-xl py-3 px-4 gap-3 items-center">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ export default function Login() {
                             </svg>
                             <span className="font-bold text-base">Welcome back!</span>
                         </div>
-                    ) : null}
+                    ) : null*/}
                 </form>
             </div>
         </div>
