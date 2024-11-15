@@ -7,6 +7,10 @@
         @apply flex justify-start items-center gap-2 border w-full h-10 pl-4 rounded-full focus-within:ring-2
         focus-within:ring-offset-2 focus-within:ring-gray-200;
     }
+    .InputError {
+        @apply flex justify-start items-center gap-2 border border-red-300 w-full h-10 pl-4 rounded-full focus-within:ring-2
+        focus-within:ring-offset-2 focus-within:ring-red-400;
+    }
     .formBtn {
         @apply bg-gray-200 text-center py-2 w-full rounded-full font-bold focus:scale-90 focus:bg-gray-500;
     }

@@ -1,14 +1,13 @@
-interface IFormInputProp {
+import { InputHTMLAttributes } from "react";
+
+interface InputProp {
     icon: "email" | "user" | "password";
     name: string;
-    type: string;
-    placeholder: string;
-    required: boolean;
     errors: string[];
     className: string;
 }
 
-export default function FormInput({ icon, name, type, placeholder, required, errors, className }: IFormInputProp) {
+export default function Input({ icon, name, errors = [], className, ...rest }: InputProp & InputHTMLAttributes<HTMLInputElement>) {
     return (
         <>
             <div className={className}>
@@ -48,10 +47,8 @@ export default function FormInput({ icon, name, type, placeholder, required, err
                 ) : null}
                 <input
                     className="focus:outline-none"
-                    type={type}
                     name={name}
-                    required={required}
-                    placeholder={placeholder}
+                    {...rest}
                 />
             </div>
             {errors.length !== 0
