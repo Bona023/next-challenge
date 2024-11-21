@@ -1,8 +1,8 @@
 "use client";
 import { useFormState, useFormStatus } from "react-dom";
 import CreateAccountAction from "./action";
-import Input from "../components/input";
-import { PASSWORD_MIN_LENGTH, USERNAME_MAX_LENGTH, USERNAME_MIN_LENGTH } from "../lib/constants";
+import Input from "../../components/input";
+import { PASSWORD_MIN_LENGTH, USERNAME_MAX_LENGTH, USERNAME_MIN_LENGTH } from "../../lib/constants";
 import Link from "next/link";
 
 export default function CreateAccount() {
@@ -10,7 +10,6 @@ export default function CreateAccount() {
     const { pending } = useFormStatus();
     return (
         <div className="flex flex-col items-center">
-            <div className="h-4 w-full bg-gradient-to-r from-indigo-600 via-emerald-200 to-indigo-600"></div>
             <div className="flex flex-col items-center px-10 w-[600px]">
                 <div className="pt-20 pb-10">
                     <span className="text-6xl font-bold text-indigo-700 drop-shadow-[3px_3px_3px_rgba(0,0,0,0.5)]">Join</span>
@@ -67,12 +66,18 @@ export default function CreateAccount() {
                     </button>
                 </form>
                 <div className="h-[2px] bg-gray-400 w-[450px] my-6"></div>
-                <div className="w-full px-20">
+                <div className="w-full px-20 flex flex-col gap-3">
                     <Link
                         href="/log-in"
                         className="w-full py-2 bg-indigo-300 text-center rounded-full block font-bold"
                     >
-                        Log In →
+                        Email Login →
+                    </Link>
+                    <Link
+                        href="/sms"
+                        className="w-full py-2 bg-indigo-300 text-center rounded-full block font-bold"
+                    >
+                        Phone Login →
                     </Link>
                 </div>
             </div>

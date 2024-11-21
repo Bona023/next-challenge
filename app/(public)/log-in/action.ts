@@ -1,10 +1,10 @@
 "use server";
 import { z } from "zod";
-import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX, PASSWORD_REGEX_ERROR } from "../lib/constants";
-import db from "../lib/db";
+import { PASSWORD_MIN_LENGTH, PASSWORD_REGEX, PASSWORD_REGEX_ERROR } from "../../lib/constants";
+import db from "../../lib/db";
 import bcrypt from "bcrypt";
 import { redirect } from "next/navigation";
-import getSession from "../lib/session";
+import getSession from "../../lib/session";
 
 const checkEmailExists = async (email: string) => {
     const user = await db.user.findUnique({
